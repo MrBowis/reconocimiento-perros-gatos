@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog and Cat Recognition</title>
-</head>
-<body>
-    <h1>Welcome to Dog and Cat Recognition</h1>
-    <p>This application helps to recognize dogs and cats from images.</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Reconocimiento de Perros y Gatos</title>
+  </head>
+  <body class="bg-gray-900 text-gray-100">
+    <div class="container mx-auto p-5 text-center">
+        <h1 class="text-4xl font-bold text-center text-green-400 mb-6">Bienvenido a este pequeño proyecto de reconocimiento de imágenes</h1>
+        <p class="text-lg text-center text-green-200 mb-8">
+            Este aplicativo reconoce entre perros y gatos mediante imágenes haciendo uso de una red convolucional.
+        </p>
+    </div>
+    <main class="flex flex-col items-center mt-8">
+      <div class="flex flex-col justify-center items-center bg-gray-800 shadow-lg rounded-xl p-6 w-full max-w-md">
+        <video id="video" playsinline autoplay class="hidden"></video>
+        <button
+          id="cambiar-camara"
+          onclick="cambiarCamara();"
+          class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-500 transition mb-4"
+        >
+          Cambiar Cámara
+        </button>
+        <canvas
+          id="canvas"
+          width="300"
+          height="300"
+          class="border rounded-lg shadow-md"
+        ></canvas>
+        <canvas
+          id="otrocanvas"
+          width="150"
+          height="150"
+          class="hidden"
+        ></canvas>
+        <div id="resultado" class="mt-4 text-green-300 font-semibold"></div>
+      </div>
+    </main>
+
+    <footer class="bg-gray-800 text-center py-5 mt-8 rounded-t-lg">
+      <h2 class="text-2xl font-bold text-green-400">Alejandro Andrade</h2>
+      <p class="text-lg text-green-200 mb-4">
+        Revisa
+        <a
+          href="https://mrbowis.github.io/Portfolio"
+          class="text-blue-500 hover:underline"
+        >
+          mi github</a
+        >
+        para mas proyectos interesantes.
+      </p>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="main.js" id="modelo"></script>
+  </body>
 </html>
